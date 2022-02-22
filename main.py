@@ -7,12 +7,13 @@ sequence = ""
 with open('websiteData.txt', 'r', encoding='utf-8') as f:
     sequence = f.read()
 
+
 def find_all_emails(source: str) -> list:
     all_emails = re.findall(r'[\.a-zA-z0-9]*@[a-zA-z0-9]*\.com', source)
     return all_emails
 
 
-def filter_emails(emails: list) -> dict:
+def filter_emails(emails: list) -> None:
     mails = {}
     for email in emails:
         mails[email] = {
@@ -23,15 +24,17 @@ def filter_emails(emails: list) -> dict:
         mails[email]["Occurrence"] = sum([1 for mail in emails if mail == email])
 
     for em in emails:
-        
+
         if re.match('[a-zA-z0-9]*\.[a-zA-z0-9]*@[a-zA-z0-9]*\.com', em):
             mails[em]["EmailType"] = "Human"
         else:
             mails[em]["EmailType"] = "Non-Human"
 
-    return json.dumps(mails)
+    with open('data.json', 'w') as f:
+        json.dump(mails, f, ensure_ascii=False, indent=4)
 
 
-all_mails = find_all_emails(sequence)
-filtered_emails = filter_emails(all_mails)
-print(filtered_emails)
+if __name__ == '__main__':
+    all_mails = find_all_emails(sequence)
+    filter_emails(all_mails)
+

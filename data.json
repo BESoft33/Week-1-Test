@@ -1,0 +1,26 @@
+{
+    "Jobs@linkedin.com": {
+        "Occurrence": 1,
+        "EmailType": "Non-Human"
+    },
+    "gregor@mxanalytics.com": {
+        "Occurrence": 1,
+        "EmailType": "Non-Human"
+    },
+    "susan.daniels@moo.com": {
+        "Occurrence": 1,
+        "EmailType": "Human"
+    },
+    "hr@vancuemonics.com": {
+        "Occurrence": 1,
+        "EmailType": "Non-Human"
+    },
+    "syneca.gregory@gmail.com": {
+        "Occurrence": 1,
+        "EmailType": "Human"
+    },
+    "realtors@bbn.com": {
+        "Occurrence": 1,
+        "EmailType": "Non-Human"
+    }
+}
